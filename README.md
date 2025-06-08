@@ -190,6 +190,11 @@ docker run -d -p 3000:3000 \
   Password: root123
   ```
 
+### 7. Alternatif: Akses Aplikasi Online
+Prediksi bisa langsung dilakukan tanpa menjalankan lokal:
+👉 [Buka Aplikasi Streamlit](https://student-dropout-analysisgit-td8ejved5tujlhaikwqufg.streamlit.app)
+
+
 
 ---
 
@@ -320,10 +325,12 @@ Berikut adalah 10 fitur terpenting menurut model dan interpretasinya:
 
 <table border="1" cellspacing="0" cellpadding="6"> <thead> <tr> <th>Fitur</th> <th>Interpretasi</th> </tr> </thead> <tbody> <tr> <td>Curricular_units_2nd_sem_approved</td> <td>Semakin sedikit mata kuliah yang disetujui pada semester 2, semakin tinggi risiko dropout.</td> </tr> <tr> <td>Tuition_fees_up_to_date</td> <td>Mahasiswa yang tidak membayar SPP tepat waktu cenderung memiliki risiko dropout lebih tinggi.</td> </tr> <tr> <td>Curricular_units_1st_sem_approved</td> <td>Jumlah mata kuliah yang lulus di semester 1 sangat memengaruhi keberlangsungan studi.</td> </tr> <tr> <td>Curricular_units_1st_sem_enrolled</td> <td>Mahasiswa dengan beban studi rendah di semester 1 lebih berisiko dropout.</td> </tr> <tr> <td>Debtor</td> <td>Mahasiswa yang memiliki hutang finansial kepada institusi menunjukkan kecenderungan lebih tinggi untuk dropout.</td> </tr> <tr> <td>Scholarship_holder</td> <td>Penerima beasiswa cenderung memiliki motivasi dan dukungan untuk menyelesaikan studi.</td> </tr> <tr> <td>Curricular_units_2nd_sem_credited</td> <td>Kehadiran SKS di semester 2 juga berkontribusi terhadap status akademik mahasiswa.</td> </tr> <tr> <td>Age_at_enrollment</td> <td>Usia saat masuk perkuliahan dapat memengaruhi kesiapan dan stabilitas akademik.</td> </tr> <tr> <td>Daytime_evening_attendance</td> <td>Mahasiswa yang kuliah malam (evening class) memiliki dropout rate lebih tinggi.</td> </tr> <tr> <td>Gender</td> <td>Terdapat perbedaan proporsi dropout antara laki-laki dan perempuan yang perlu ditelusuri lebih lanjut.</td> </tr> </tbody> </table>
 
+### Implementasi Prediksi Model
+Model prediksi yang telah dibangun dapat diakses melalui aplikasi Streamlit yang menyediakan form input untuk memasukkan data mahasiswa baru. Aplikasi ini akan memberikan estimasi probabilitas risiko dropout berdasarkan fitur-fitur yang relevan.
 
-Berikut adalah bagian **Rekomendasi Tindakan** yang dapat kamu tambahkan ke akhir laporan atau `README.md`. Bagian ini berisi saran konkret berdasarkan hasil analisis dan temuan dari dashboard maupun model prediktif.
+[Prediksi Model URL](https://student-dropout-analysisgit-td8ejved5tujlhaikwqufg.streamlit.app)
 
-
+![Prediksi Model Streamlit](./arusdian-streamlit.png)
 ## Rekomendasi Tindakan
 
 Berdasarkan hasil analisis data dan model prediktif, berikut adalah rekomendasi yang dapat diambil oleh pihak **Jaya Jaya Institut** untuk mengurangi angka dropout dan meningkatkan tingkat kelulusan mahasiswa:
@@ -365,13 +372,21 @@ Manajemen akademik disarankan untuk menggunakan dashboard Metabase yang telah di
 * Melacak proporsi dropout berdasarkan jurusan, gender, atau status sosial ekonomi
 * Melakukan pemantauan semesteran secara rutin
 * Menyusun strategi kampus berbasis data aktual
+* 
+### 6. Pemanfaatan Aplikasi Streamlit untuk Prediksi Individual
+Aplikasi prediksi berbasis Streamlit yang telah dibangun memungkinkan pihak akademik untuk melakukan penilaian risiko dropout secara individual. Dengan memasukkan data mahasiswa, aplikasi ini akan memberikan estimasi probabilitas risiko dropout, sehingga:
+
+* Melakukan prediksi risiko dropout secara instan berdasarkan data input manual mahasiswa
+* Mengintegrasikan penilaian risiko sebagai bagian dari proses penerimaan atau evaluasi semester
+* Memberikan dasar data untuk komunikasi intervensi awal antara dosen wali dan mahasiswa
+Aplikasi ini dapat dijalankan secara lokal maupun diakses melalui URL cloud untuk mempermudah penggunaan tanpa instalasi.
 
 ## Executive Summary
 Jaya Jaya Institut menghadapi tantangan tingginya tingkat mahasiswa yang mengalami dropout (putus kuliah) selama proses studi. Fenomena ini tidak hanya berdampak pada reputasi akademik institusi, tetapi juga mencerminkan inefisiensi dalam pengelolaan sumber daya pendidikan. Untuk menjawab tantangan ini, dilakukan sebuah proyek analisis data dengan tujuan mengidentifikasi faktor-faktor utama penyebab dropout serta membangun sistem pendukung pengambilan keputusan yang berbasis data.
 
 Proyek ini memanfaatkan pendekatan data science dengan Python, memanfaatkan data historis mahasiswa untuk eksplorasi data, pemodelan klasifikasi menggunakan XGBoost, serta penyajian dashboard visual interaktif melalui Metabase. Aplikasi prediktif berbasis Streamlit juga dibangun untuk memudahkan pihak kampus melakukan penilaian risiko dropout secara individual.
 
-Model terbaik yang digunakan adalah XGBoost Classifier, yang setelah optimasi mampu memprediksi risiko dropout dengan akurasi sebesar 88% dan F1-score kelas dropout sebesar 0.82. Dashboard Metabase yang dibangun memvisualisasikan tren dropout dan distribusi mahasiswa berdasarkan latar belakang akademik, demografi, serta kondisi sosial ekonomi.
+Model terbaik yang digunakan adalah XGBoost Classifier, yang setelah optimasi mampu memprediksi risiko dropout dengan akurasi sebesar 88% dan F1-score kelas dropout sebesar 0.82. Dashboard Metabase yang dibangun memvisualisasikan tren dropout dan distribusi mahasiswa berdasarkan latar belakang akademik, demografi, serta kondisi sosial ekonomi. Aplikasi prediksi ini juga telah diimplementasikan secara online melalui antarmuka Streamlit, sehingga dapat langsung digunakan oleh pihak institusi tanpa instalasi tambahan.
 
 Berikut adalah 10 fitur paling berpengaruh terhadap risiko dropout menurut model:
 
